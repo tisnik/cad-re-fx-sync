@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         version="2.4">
+
+    <!-- main section {{{ -->
+
+    <session-config>
+        <session-timeout>
+            60
+        </session-timeout>
+    </session-config>
+
+    <welcome-file-list>
+        <welcome-file>
+            Index
+        </welcome-file>
+    </welcome-file-list>
+
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <page-encoding>utf-8</page-encoding>
+        </jsp-property-group>
+    </jsp-config>
+
+    <!-- }}} -->
+    <!-- listeners {{{ -->
+
+    <listener>
+        <listener-class>
+            cz.tisnik.cadgfxsync.listeners.ContextListener
+        </listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>
+            cz.tisnik.cadgfxsync.listeners.SessionListener
+        </listener-class>
+    </listener>
+
+    <!-- }}} -->
+    <!-- parameters {{{ -->
+
+    <context-param>
+        <!-- was used on web page footers -->
+        <param-name>footer_copyright</param-name>
+        <param-value>(c) 2009, ČD-Telematika, a.s.</param-value>
+    </context-param>
+
+    <context-param>
+        <!-- was used on web page footers -->
+        <param-name>webmaster</param-name>
+        <param-value>Pavel Tišnovský</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>version</param-name>
+        <param-value>0.0.4</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>modification_date</param-name>
+        <param-value>2009-11-03</param-value>
+    </context-param>
+
+    <context-param>
+        <!-- width of rendered image -->
+        <param-name>image_width</param-name>
+        <param-value>1024</param-value>
+    </context-param>
+
+    <context-param>
+        <!-- height of rendered image -->
+        <param-name>image_height</param-name>
+        <param-value>768</param-value>
+    </context-param>
+
+    <!-- }}} -->
+
+    <!-- servlets {{{ -->
+
+    <servlet>
+        <servlet-name>Index</servlet-name>
+        <display-name>Index</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.Index</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>SaveChanges</servlet-name>
+        <display-name>SaveChanges</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.SaveChanges</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>LoadDataModel</servlet-name>
+        <display-name>LoadDataModel</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.LoadDataModel</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CreateNewFloorStage1</servlet-name>
+        <display-name>CreateNewFloorStage1</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.CreateNewFloorStage1</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CreateNewFloorStage2</servlet-name>
+        <display-name>CreateNewFloorStage2</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.CreateNewFloorStage2</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CreateNewFloorStage3</servlet-name>
+        <display-name>CreateNewFloorStage3</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.CreateNewFloorStage3</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CreateNewFloorStage4</servlet-name>
+        <display-name>CreateNewFloorStage4</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.CreateNewFloorStage4</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ManagementUnitInfo</servlet-name>
+        <display-name>ManagementUnitInfo</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.ManagementUnitInfo</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>BuildingInfo</servlet-name>
+        <display-name>BuildingInfo</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.BuildingInfo</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>FloorInfo</servlet-name>
+        <display-name>FloorInfo</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.FloorInfo</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>FloorVariantInfo</servlet-name>
+        <display-name>FloorVariantInfo</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.FloorVariantInfo</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>LeftMenu</servlet-name>
+        <display-name>LeftMenu</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.LeftMenu</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ImageRenderer</servlet-name>
+        <display-name>ImageRenderer</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.ImageRenderer</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Info</servlet-name>
+        <display-name>Info</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.Info</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Help</servlet-name>
+        <display-name>Help</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.Help</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ReloadDataModel</servlet-name>
+        <display-name>ReloadDataModel</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.ReloadDataModel</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ShowFloorVariant</servlet-name>
+        <display-name>ShowFloorVariant</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.ShowFloorVariant</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Commands</servlet-name>
+        <display-name>Commands</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.Commands</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Drawing</servlet-name>
+        <display-name>Drawing</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.Drawing</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>RoomList</servlet-name>
+        <display-name>RoomList</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.RoomList</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>SaveRoomInfo</servlet-name>
+        <display-name>SaveRoomInfo</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.SaveRoomInfo</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CreateFlat</servlet-name>
+        <display-name>CreateFlat</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.CreateFlat</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>RemoveFlat</servlet-name>
+        <display-name>RemoveFlat</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.RemoveFlat</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>SyncStage1</servlet-name>
+        <display-name>SyncStage1</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.SyncStage1</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>SyncStage2</servlet-name>
+        <display-name>SyncStage2</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.SyncStage2</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>SyncStage3</servlet-name>
+        <display-name>SyncStage3</display-name>
+        <servlet-class>cz.tisnik.cadgfxsync.servlets.SyncStage3</servlet-class>
+    </servlet>
+
+    <!-- }}} -->
+    <!-- servlet mappings {{{ -->
+
+    <servlet-mapping>
+        <servlet-name>Index</servlet-name>
+        <url-pattern>/Index</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SaveChanges</servlet-name>
+        <url-pattern>/SaveChanges</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>LoadDataModel</servlet-name>
+        <url-pattern>/LoadDataModel</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CreateNewFloorStage1</servlet-name>
+        <url-pattern>/CreateNewFloorStage1</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CreateNewFloorStage2</servlet-name>
+        <url-pattern>/CreateNewFloorStage2</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CreateNewFloorStage3</servlet-name>
+        <url-pattern>/CreateNewFloorStage3</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CreateNewFloorStage4</servlet-name>
+        <url-pattern>/CreateNewFloorStage4</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ManagementUnitInfo</servlet-name>
+        <url-pattern>/ManagementUnitInfo</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>BuildingInfo</servlet-name>
+        <url-pattern>/BuildingInfo</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>FloorInfo</servlet-name>
+        <url-pattern>/FloorInfo</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>FloorVariantInfo</servlet-name>
+        <url-pattern>/FloorVariantInfo</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>LeftMenu</servlet-name>
+        <url-pattern>/LeftMenu</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ImageRenderer</servlet-name>
+        <url-pattern>/ImageRenderer</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Info</servlet-name>
+        <url-pattern>/Info</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Help</servlet-name>
+        <url-pattern>/Help</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ReloadDataModel</servlet-name>
+        <url-pattern>/ReloadDataModel</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ShowFloorVariant</servlet-name>
+        <url-pattern>/ShowFloorVariant</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Commands</servlet-name>
+        <url-pattern>/Commands</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Drawing</servlet-name>
+        <url-pattern>/Drawing</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RoomList</servlet-name>
+        <url-pattern>/RoomList</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SaveRoomInfo</servlet-name>
+        <url-pattern>/SaveRoomInfo</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CreateFlat</servlet-name>
+        <url-pattern>/CreateFlat</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RemoveFlat</servlet-name>
+        <url-pattern>/RemoveFlat</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SyncStage1</servlet-name>
+        <url-pattern>/SyncStage1</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SyncStage2</servlet-name>
+        <url-pattern>/SyncStage2</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SyncStage3</servlet-name>
+        <url-pattern>/SyncStage3</url-pattern>
+    </servlet-mapping>
+
+    <!-- }}} -->
+
+</web-app>
+
+<!--- vim: foldmethod=marker
+-->
